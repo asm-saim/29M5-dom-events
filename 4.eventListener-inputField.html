@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener</title>
+</head>
+
+<body>
+    <h1>Event Listener with Input</h1>
+    <br>
+    <p id="p-Text">No Name</p>
+    <input id="input-name" placeholder="Enter name" type="text">
+    <button id="name-btn">Update</button>
+
+    <script>
+        // Step:1 get event listener
+        document.getElementById('name-btn').addEventListener('click',
+            function () {
+                // Step 2: connect input box with button
+                const inputName = document.getElementById('input-name');
+                // console.log('input paisi')
+
+                // Step 3: connct input with paragraph    
+                const name = inputName.value;
+                const textChanged = document.getElementById('p-Text');
+                textChanged.innerText = name;
+
+
+
+            })
+    </script>
+</body>
+
+</html>

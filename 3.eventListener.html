@@ -10,12 +10,24 @@
 <body>
     <h1 id="head-txt">This is the heading of Event Listener</h1>
     <button id="btn-txt">Click here</button>
+    <br>
+    <!-- Ex:2 -->
+    <p id="p-txt">To change the text, click the below button</p>
+    <button id="btn-p">Click</button>
     <script>
         document.getElementById('btn-txt').addEventListener('click',
             function () {
                 // console.log('clicked');
                 const headValue = document.getElementById('head-txt');
                 headValue.innerText = 'Heading for Event Handler is Changed';
+            })
+
+        // for Ex:2
+        document.getElementById('btn-p').addEventListener('click',
+            function () {
+                // console.log('Ji bolen');
+                const pText = document.getElementById('p-txt');
+                pText.innerText = 'Paragraph text successfully updated';
             })
     </script>
 </body>
