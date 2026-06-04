@@ -10,11 +10,28 @@
 
 <body>
     <h1>addEventListener</h1>
+    <!-- addEventListener for click-->
     <button id="colorOrange">Click here for orange bg</button>
+    <br>
+    <!-- addEventListener for Hover -->
+    <button id="hoverHere">Hover Here</button>
+
     <script>
         document.getElementById('colorOrange').addEventListener('click',
             function orange() {
                 document.body.style.backgroundColor = 'orange';
+            }
+        )
+
+        // hover
+        document.getElementById('hoverHere').addEventListener('mouseenter',
+            function hover() {
+                document.body.style.backgroundColor = 'red';
+            }
+        )
+        document.getElementById('hoverHere').addEventListener('mouseleave',
+            function leave() {
+                document.body.style.backgroundColor = 'white';
             }
         )
     </script>
