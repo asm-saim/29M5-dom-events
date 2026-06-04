@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM Events</title>
 </head>
+
 <body>
     <h1>Hi, I am DOM-Events</h1>
-    
+
     <!-- Inline HTML events -->
     <button onclick="console.log(777)">Click Here</button>
     <button onclick="console.log(0)">Second click Here</button>
     <button onclick="console.log('hello')">Third click Here</button>
+    <br>
+
+
+    <!-- option 2 -->
+    <button onclick="blue()">Click 2</button>
+    <br>
+
+
+    <!-- Option-3  -->
+    <button id="click-id">This is Button 3</button>
+    <button id="make-purple">This is Button 3 version 2</button>
+    <script>
+        // for click id
+        const clickValue3 = document.getElementById('click-id');
+        clickValue3.onclick = function click3() {
+            document.body.style.backgroundColor = 'lightBlue';
+        }
+
+        // for make purple
+        const makePurple = document.getElementById('make-purple');
+        makePurple.onclick = purple;
+        function purple() {
+            document.body.style.backgroundColor = 'purple';
+        }
+
+    </script>
+
+
     <script src="js/dom-events.js"></script>
 </body>
+
 </html>
