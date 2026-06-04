@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addEventListener</title>
+</head>
+
+<body>
+    <h1 id="head-txt">This is the heading of Event Listener</h1>
+    <button id="btn-txt">Click here</button>
+    <script>
+        document.getElementById('btn-txt').addEventListener('click',
+            function () {
+                // console.log('clicked');
+                const headValue = document.getElementById('head-txt');
+                headValue.innerText = 'Heading for Event Handler is Changed';
+            })
+    </script>
+</body>
+
+</html>
