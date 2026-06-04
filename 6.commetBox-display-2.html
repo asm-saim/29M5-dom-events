@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .div {
+        background-color: beige;
+        border: 2px solid blue;
+        padding: 5px;
+        margin: 10px;
+        border-radius: 5px;
+    }
+</style>
+
+<body>
+    <section id="allComment">
+        <div class="div">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio inventore tempora amet nesciunt deleniti
+                eaque maxime non pariatur ipsa omnis earum ab, minima laudantium doloribus deserunt dolorum. Autem,
+                mollitia necessitatibus.</p>
+        </div>
+        <div class="div">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci possimus corrupti eaque veritatis
+                exercitationem temporibus quam molestias illo nemo nesciunt cupiditate, repellendus sit? Assumenda quasi
+                distinctio quisquam id cumque reiciendis!</p>
+        </div>
+        <div class="div">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi repellendus inventore minus tempora
+                voluptates molestiae asperiores unde sunt amet totam qui, eligendi laudantium laboriosam animi porro
+                consequuntur, sit doloremque libero.</p>
+        </div>
+    </section>
+    <div>
+        <textarea name="" id="commentPart" placeholder="Enter Name"></textarea>
+        <br>
+        <button id="commentBtn">Submit</button>
+    </div>
+    <script>
+        document.getElementById('commentBtn').addEventListener('click',
+            function () {
+                const commentTxt = document.getElementById('commentPart');
+                const commentInput = commentTxt.value;
+                // console.log(commentInput);
+
+                const insideSection = document.getElementById('allComment');
+                const newComment = document.createElement('p');
+                newComment.classList.add('div')
+                newComment.innerText = commentInput;
+                insideSection.appendChild(newComment);
+
+                commentTxt.value = '';
+
+            })
+    </script>
+</body>
+
+</html>

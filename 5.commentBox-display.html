@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Box</title>
+
+    <style>
+        .div {
+            background-color: beige;
+            border: 2px solid blue;
+            padding: 5px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Here, we will display the comment box</h1>
+    <section id="displayParagraph">
+        <div class="div">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio inventore tempora amet nesciunt deleniti
+                eaque maxime non pariatur ipsa omnis earum ab, minima laudantium doloribus deserunt dolorum. Autem,
+                mollitia necessitatibus.</p>
+        </div>
+        <div class="div">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci possimus corrupti eaque veritatis
+                exercitationem temporibus quam molestias illo nemo nesciunt cupiditate, repellendus sit? Assumenda quasi
+                distinctio quisquam id cumque reiciendis!</p>
+        </div>
+        <div class="div">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi repellendus inventore minus tempora
+                voluptates molestiae asperiores unde sunt amet totam qui, eligendi laudantium laboriosam animi porro
+                consequuntur, sit doloremque libero.</p>
+        </div>
+    </section>
+    <div>
+        <textarea name="" id="comment" cols="80" rows="5"></textarea>
+        <br>
+        <button id="commentBtn">Submit</button>
+    </div>
+    <script>
+        //step -1
+        document.getElementById('commentBtn').addEventListener('click',
+            function () {
+                //step -2    
+                const commentSec = document.getElementById('comment');
+                const display = commentSec.value;
+                // console.log(display);
+
+                const displayComment = document.getElementById('displayParagraph');
+                const displayElement = document.createElement('p');
+                displayElement.classList.add('div')
+                displayElement.innerText = display;
+
+                displayComment.appendChild(displayElement);
+
+                commentSec.value = '';
+
+
+            })
+    </script>
+</body>
+
+</html>
