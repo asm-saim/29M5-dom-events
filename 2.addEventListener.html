@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event Listener</title>
+
+</head>
+
+<body>
+    <h1>addEventListener</h1>
+    <button id="colorOrange">Click here for orange bg</button>
+    <script>
+        document.getElementById('colorOrange').addEventListener('click',
+            function orange() {
+                document.body.style.backgroundColor = 'orange';
+            }
+        )
+    </script>
+</body>
+
+</html>
