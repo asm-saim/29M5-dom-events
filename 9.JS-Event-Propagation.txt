@@ -1,0 +1,154 @@
+========================
+JavaScript Event Propagation
+========================
+
+# Event Propagation
+The process of how an event travels through the DOM.
+
+Example:
+<div id="parent">
+    <button id="child">Click</button>
+</div>
+
+When the button is clicked, the event can move through parent and child elements.
+
+========================
+1. Capturing Phase
+========================
+
+Flow:
+Document → HTML → Body → Parent → Child
+
+Also called:
+Event Capturing / Trickling
+
+Example:
+parent.addEventListener("click", handler, true);
+
+Note:
+- Runs from outer element to inner element
+- Less commonly used
+
+========================
+2. Target Phase
+========================
+
+The event reaches the clicked element.
+
+Example:
+<button>Click Me</button>
+
+If button is clicked,
+button is the target element.
+
+event.target
+→ returns the clicked element.
+
+========================
+3. Bubbling Phase
+========================
+
+Flow:
+Child → Parent → Body → HTML → Document
+
+Default behavior in JavaScript.
+
+Example:
+child.addEventListener("click", () => {
+    console.log("Child");
+});
+
+parent.addEventListener("click", () => {
+    console.log("Parent");
+});
+
+Output after clicking child:
+Child
+Parent
+
+========================
+stopPropagation()
+========================
+
+Stops the event from moving to parent elements.
+
+Example:
+child.addEventListener("click", (event) => {
+    event.stopPropagation();
+});
+
+Result:
+- Child handler runs
+- Parent handler does NOT run
+
+========================
+stopImmediatePropagation()
+========================
+
+Stops:
+1. Event bubbling
+2. Other handlers on the same element
+
+Example:
+button.addEventListener("click", (e) => {
+    e.stopImmediatePropagation();
+});
+
+Result:
+- Current handler runs
+- Remaining click handlers won't run
+
+========================
+Difference
+========================
+
+stopPropagation()
+→ Stops moving to parent elements
+
+stopImmediatePropagation()
+→ Stops parent propagation AND other handlers on same element
+
+========================
+Use Cases of Bubbling
+========================
+
+# Event Delegation
+Attach one listener to parent instead of many children.
+
+Example:
+ul.addEventListener("click", (e) => {
+    console.log(e.target);
+});
+
+Benefits:
+- Better performance
+- Less code
+- Works for dynamically added elements
+
+# Detect Clicks from Child Elements
+Handle child events from parent.
+
+# Build Menus, Tables, Lists
+Use one listener for many items.
+
+========================
+Interview Summary
+========================
+
+Capturing:
+Parent → Child
+
+Target:
+Clicked Element
+
+Bubbling:
+Child → Parent (default)
+
+stopPropagation():
+Stops bubbling to parents
+
+stopImmediatePropagation():
+Stops bubbling + other handlers
+
+Main use of bubbling:
+Event Delegation
