@@ -1,0 +1,45 @@
+Event Delegation (Simple Explanation)
+
+Event delegation is a technique where you attach one event listener to a parent element instead of adding listeners to each child element.
+
+Why it is useful:
+
+Instead of writing multiple event listeners for each child element like:
+
+child1.addEventListener("click", fn);
+child2.addEventListener("click", fn);
+child3.addEventListener("click", fn);
+
+You attach a single event listener to the parent:
+
+parent.addEventListener("click", function (event) {
+console.log(event.target);
+});
+
+How it works:
+
+1. When you click a child element, the event happens on that element.
+2. The event then "bubbles up" to the parent element.
+3. The parent catches the event using one listener.
+
+Example:
+
+HTML:
+
+<ul id="list">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
+
+JavaScript:
+document.getElementById("list").addEventListener("click", function (event) {
+console.log(event.target.textContent);
+});
+
+Result:
+Clicking any <li> will be handled by the parent <ul>.
+
+One-line definition:
+
+Event delegation means handling child events through a single parent event listener using event bubbling.
