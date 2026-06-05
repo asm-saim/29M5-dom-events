@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="title">My Secret info</h1>
+    <input id="userInput" type="text" placeholder="Enter name">
+    <button id="delete-btn" disabled>Delete</button>
+
+    <script>
+        // Select the input field and listen for keyboard input
+        document.getElementById('userInput').addEventListener('keyup',
+            function (event) {
+                // Get the current text entered by the user
+                const text = event.target.value;
+                const btnValue = document.getElementById('delete-btn')
+                const headTitle = document.getElementById('title');
+                if (text === 'delete') {
+                    btnValue.removeAttribute('disabled')
+                    headTitle.style.display = 'none';
+                    console.log('delete typed');
+                }
+                else {
+                    console.log('something else');
+                    btnValue.setAttribute('disabled', true)
+                }
+            }
+        )
+
+    </script>
+</body>
+
+</html>
